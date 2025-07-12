@@ -20,10 +20,10 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nome
 
-class Ementa(models.Model):  # Alterado de ItemCardapio para Ementa
+class Ementa(models.Model):  
     TIPO_CHOICES = [
         ('ENT', 'Entrada'),
-        ('PRIN', 'Prato Principal'),  # Alterado de PRI para PRIN
+        ('PRIN', 'Prato Principal'),  
         ('BEB', 'Bebida'),
         ('SOB', 'Sobremesa'),
         ('OUT', 'Outros'),
@@ -45,11 +45,11 @@ class Ementa(models.Model):  # Alterado de ItemCardapio para Ementa
         on_delete=models.SET_NULL, 
         null=True, 
         blank=True,
-        related_name='itens_ementa'  # Alterado o related_name
+        related_name='itens_ementa'  
     )
     tipo = models.CharField(
         "Tipo", 
-        max_length=4,  # Aumentado para 4 caracteres
+        max_length=4, 
         choices=TIPO_CHOICES,
         default='PRIN'
     )
@@ -60,7 +60,7 @@ class Ementa(models.Model):  # Alterado de ItemCardapio para Ementa
         validators=[MinValueValidator(0.01)]
     )
     descricao = models.TextField("Descrição", blank=True)
-    ingredientes = models.TextField("Ingredientes", blank=True)  # PT-PT
+    ingredientes = models.TextField("Ingredientes", blank=True)  
     disponivel = models.BooleanField("Disponível", default=True)
     destaque = models.BooleanField("Destaque", default=False)
     imagem = models.ImageField(

@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import * as apiModule from './api';  // Importação única como namespace
+import * as apiModule from './api';  
 import './App.css';
 
-// Debug - verifique as exportações
 console.log('API Module exports:', apiModule);
 
-// Use as exportações diretamente do namespace
+
 type EmentaItem = apiModule.EmentaItem;
-// Não declare fetchEmenta novamente - use diretamente apiModule.fetchEmenta
+
 
 function App() {
   const [itens, setItens] = useState<EmentaItem[]>([]);
@@ -15,7 +14,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    apiModule.fetchEmenta()  // Chamada direta via namespace
+    apiModule.fetchEmenta() 
       .then(data => {
         setItens(data);
         setLoading(false);
