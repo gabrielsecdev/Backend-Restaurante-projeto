@@ -1,0 +1,11 @@
+# Adicione estas linhas ao .gitignore (se já não existirem)
+echo "" >> .gitignore
+echo "# Python" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.py[cod]" >> .gitignore
+echo ".env" >> .gitignore
+echo "db.sqlite3" >> .gitignore
+echo "" >> .gitignore
+echo "# Dependências" >> .gitignore
+echo "/requirements.txt" >> .gitignore  # Ignora o da raiz
+echo "!backend/requirements.txt" >> .gitignore  # Mantém o do backend
